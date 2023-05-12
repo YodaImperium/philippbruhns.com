@@ -1,0 +1,63 @@
+baseURL = "https://yodaimperium.de"
+title = "Philipp Bruhns"
+theme = "gokarna"
+languageCode = "en"
+defaultContentLanguage = "en"
+enableEmoji = true
+enableRobotsTXT = true
+
+# Choose one of emacs, trac or perldoc
+pygmentsStyle = "monokai"
+
+[params]
+  footer = "Philipp Bruhns"
+  description = "Software Engineer | Crypto Evangelist"
+  avatarURL = "/images/ape.png"
+  AvatarAltText = "avatar"
+  avatarSize = "size-xl"
+  accentColor = "#e4e4a8"
+
+  socialIcons = [
+    {name = "linkedin", url = "https://www.linkedin.com/in/philipp-bruhns-7593ba235"},
+    {name = "github", url = "https://github.com/YodaImperium"},
+    {name = "mastodon", url = "https://mastodon.social/@yodaimperium"},
+    {name = "email", url = "mailto:contact@philippbruhns.com"}
+  ]
+  metaKeywords = ["blog", "gokarna", "hugo"]
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    pre = "<span data-feather='home'></span>"
+    url = "/"
+    weight = 1
+
+  [[menu.main]]
+    name = "Posts"
+    pre = "<span data-feather='book'></span>"
+    url = "/posts/"
+    weight = 2
+
+  [[menu.main]]
+    name = "Projects"
+    pre = "<span data-feather='code'></span>"
+    url = "/projects/"
+    weight = 3
+
+  [[menu.main]]
+    identifier = "github"
+    pre = "<span data-feather='github'></span>"
+    url = "https://github.com/YodaImperium"
+    weight = 5
+
+  [[menu.main]]
+    identifier = "rss"
+    pre = "<span data-feather='rss'></span>"
+    url = "/index.xml"
+    weight = 7
+
+[markup]
+  [markup.tableOfContents]
+    startLevel = 1
+    endLevel = 4
+    ordered = false
