@@ -47,7 +47,7 @@ pygmentsStyle = "monokai"
   [[menu.main]]
     identifier = "github"
     pre = "<span data-feather='github'></span>"
-    url = "https://github.com/YodaImperium"
+    url = "https://github.com/YodaImperium/website-deployment/"
     weight = 5
 
   [[menu.main]]
