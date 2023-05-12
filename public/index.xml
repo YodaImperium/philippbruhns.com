@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home on Philipp Bruhns</title>
+    <link>https://yodaimperium.de/</link>
+    <description>Recent content in Home on Philipp Bruhns</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 09 May 2023 18:12:12 +0200</lastBuildDate><atom:link href="https://yodaimperium.de/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Helloworld</title>
+      <link>https://yodaimperium.de/posts/helloworld/</link>
+      <pubDate>Sat, 13 May 2023 00:10:24 +0200</pubDate>
+      
+      <guid>https://yodaimperium.de/posts/helloworld/</guid>
+      <description>hello world</description>
+    </item>
+    
+    <item>
+      <title>Test</title>
+      <link>https://yodaimperium.de/posts/test/</link>
+      <pubDate>Fri, 12 May 2023 23:57:16 +0200</pubDate>
+      
+      <guid>https://yodaimperium.de/posts/test/</guid>
+      <description>This is a test blog post.</description>
+    </item>
+    
+    <item>
+      <title>Impressum</title>
+      <link>https://yodaimperium.de/impressum/</link>
+      <pubDate>Fri, 12 May 2023 23:51:11 +0200</pubDate>
+      
+      <guid>https://yodaimperium.de/impressum/</guid>
+      <description>Angaben gemäß § 5 TMG Philipp Bruhns
+Kontakt E-Mail: contact@philippbruhns.com</description>
+    </item>
+    
+    <item>
+      <title>Website</title>
+      <link>https://yodaimperium.de/projects/website/</link>
+      <pubDate>Fri, 12 May 2023 22:37:17 +0200</pubDate>
+      
+      <guid>https://yodaimperium.de/projects/website/</guid>
+      <description>Documentation A detailed documentation of this website will be updated soon.</description>
+    </item>
+    
+  </channel>
+</rss>
