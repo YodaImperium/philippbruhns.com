@@ -160,10 +160,19 @@
 
     <div class="post-content">
         <p>
-            <h1 id="hosting">Hosting</h1>
-<p>The entire website is hosted on a RaspberryPi 3.</p>
+            <p>In this article I&rsquo;m going to explain the underlying architecture of this website. I think I found a very cool way to deploy just by pushing to the <a href="https://github.com/YodaImperium/website-deployment/">GitHub Repository</a> <strong>without</strong> exposing any SSH keys, etc.. However, I took a lot of inspiration from this guy called <a href="https://www.youtube.com/watch?v=ATenAnk8eX4"><em>Wolfgang&rsquo;s Channel</em></a> on YouTube.</p>
+<p><em>TL;DR</em><br>
+It is created with Hugo and deployed via GitHub Actions to a RaspberryPi running nginx.</p>
+<h1 id="static-website-generation">Static Website Generation</h1>
+<p>This very website is created with Hugo and the Gokarna Theme. I chose Hugo because it is very easy in my opinion but offers a wide range of quite powerful themes. Because I really just want to show some posts like this and general information about me, a static site is just fine for me.</p>
+<h2 id="what-is-hugo">What is Hugo?</h2>
+<p>Hugo is a static website generator written in GoLang which generates you an entire (static) website just from markdown files. This way writing article likes this can be done in markdown which makes it <strong>a lot</strong> easier than coding every page manually in HTML.</p>
+<h2 id="my-configuration">My configuration</h2>
+<p>I pretty much just used Hugo out of the box. However, I did use the Gokarna Theme. It can be found in the footer.</p>
+<h1 id="hosting">Hosting</h1>
+<p>This entire website is hosted on a Raspberry Pi 3. That runs on Raspberry Pi OS Lite. I chose this over a &ldquo;real server&rdquo; or a VPS because I had this Raspberry Pi lying around and though It&rsquo;d be cheaper while still being easy to maintain.</p>
 <h2 id="software">Software</h2>
-<p>nginx</p>
+<p>I pretty much just use nginx as the underlying webserver.</p>
 <h2 id="security">Security</h2>
 <p>In order ensure the website can be accessed securely all traffic is SSL encrypted using certbot for SSL-certificate generation.</p>
 <p>Because the SSH port also has to be opened to the internet in order for my GitHub Actions script to work properly, I had to secure the Pi against unauthorized acces via SSH too.</p>
@@ -176,6 +185,7 @@ PermitRootLogin no
 <h1 id="deployment">Deployment</h1>
 <h2 id="github-actions">GitHub Actions</h2>
 <p>For easy deployment I use a GitHub Actions script that executes as soon as I push to the repository. The script is located in <em>.github/workflows/ci.yml</em>.</p>
+<p>Just as the whole project, this script is heavily inspired by <em>Wolfgang&rsquo;s Channel</em>. His video can be found <a href="https://www.youtube.com/watch?v=ATenAnk8eX4">here</a>.</p>
 <p>Because the Action has to run the Hugo build command and push the generated static files to the RaspberryPi, I let it run in a ubuntu environment called deploy which I created for the GitHub Repo. The Environment also contains the SSH credentials als secrets, but more on that later.</p>
 <pre><code>name: CI
 run-name: Hugo blog deployment
@@ -245,6 +255,12 @@ DEPLOY_USERNAME: ${{ secrets.DEPLOY_USERNAME }}
     <nav id="toc">
         <nav id="TableOfContents">
   <ul>
+    <li><a href="#static-website-generation">Static Website Generation</a>
+      <ul>
+        <li><a href="#what-is-hugo">What is Hugo?</a></li>
+        <li><a href="#my-configuration">My configuration</a></li>
+      </ul>
+    </li>
     <li><a href="#hosting">Hosting</a>
       <ul>
         <li><a href="#software">Software</a></li>

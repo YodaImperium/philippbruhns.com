@@ -8,14 +8,30 @@ tags: ['projects', 'doc']
 showTableOfContents: true
 ---
 
+In this article I'm going to explain the underlying architecture of this website. I think I found a very cool way to deploy just by pushing to the [GitHub Repository](https://github.com/YodaImperium/website-deployment/) **without** exposing any SSH keys, etc.. However, I took a lot of inspiration from this guy called [*Wolfgang's Channel*](https://www.youtube.com/watch?v=ATenAnk8eX4) on YouTube.
+
+*TL;DR*  
+It is created with Hugo and deployed via GitHub Actions to a RaspberryPi running nginx.
+
+# Static Website Generation
+
+This very website is created with Hugo and the Gokarna Theme. I chose Hugo because it is very easy in my opinion but offers a wide range of quite powerful themes. Because I really just want to show some posts like this and general information about me, a static site is just fine for me.
+
+## What is Hugo?
+
+Hugo is a static website generator written in GoLang which generates you an entire (static) website just from markdown files. This way writing article likes this can be done in markdown which makes it **a lot** easier than coding every page manually in HTML.
+
+## My configuration
+
+I pretty much just used Hugo out of the box. However, I did use the Gokarna Theme. It can be found in the footer.
 
 # Hosting
 
-The entire website is hosted on a RaspberryPi 3.
+This entire website is hosted on a Raspberry Pi 3. That runs on Raspberry Pi OS Lite. I chose this over a "real server" or a VPS because I had this Raspberry Pi lying around and though It'd be cheaper while still being easy to maintain.
 
 ## Software
 
-nginx
+I pretty much just use nginx as the underlying webserver.
 
 ## Security
 
@@ -35,6 +51,8 @@ Additionally, only passwordless SSH login using SSH-keys is allowed on the serve
 ## GitHub Actions
 
 For easy deployment I use a GitHub Actions script that executes as soon as I push to the repository. The script is located in *.github/workflows/ci.yml*.
+
+Just as the whole project, this script is heavily inspired by *Wolfgang's Channel*. His video can be found [here](https://www.youtube.com/watch?v=ATenAnk8eX4).
 
 Because the Action has to run the Hugo build command and push the generated static files to the RaspberryPi, I let it run in a ubuntu environment called deploy which I created for the GitHub Repo. The Environment also contains the SSH credentials als secrets, but more on that later.
 
