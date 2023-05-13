@@ -1,5 +1,5 @@
 ---
-title: "Home"
+title: "Philipp Bruhns"
 date: 2023-05-09T18:12:12+02:00
 draft: false
 ---
