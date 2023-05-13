@@ -20,7 +20,7 @@ pygmentsStyle = "monokai"
   socialIcons = [
     {name = "linkedin", url = "https://www.linkedin.com/in/philipp-bruhns-7593ba235"},
     {name = "github", url = "https://github.com/YodaImperium"},
-    {name = "mastodon", url = "https://mastodon.social/@yodaimperium"},
+    {name = "mastodon", url = "https://mastodon.social/@yodaimperium", rel = "me"},
     {name = "email", url = "mailto:contact@philippbruhns.com"}
   ]
   metaKeywords = ["blog", "gokarna", "hugo"]
