@@ -8,6 +8,16 @@
     <language>en</language>
     <lastBuildDate>Tue, 09 May 2023 18:12:12 +0200</lastBuildDate><atom:link href="https://yodaimperium.de/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Privacy and data collection</title>
+      <link>https://yodaimperium.de/privacy/</link>
+      <pubDate>Sat, 13 May 2023 10:34:38 +0200</pubDate>
+      
+      <guid>https://yodaimperium.de/privacy/</guid>
+      <description>Access logs This website runs on Nginx, which collects access logs by default. The logs include the IP address and the user agent of the visitor, time and date of the visit, and the exact pages visited. The user agent may include operating system, browser, browser engine and their respective versions.
+Example yodaimperium.de 133.74.20.69 - - [13/Aug/2022:18:00:00 +0000] &amp;ldquo;GET /posts/helloworld/ HTTP/2.0&amp;rdquo; 200 2224741 &amp;ldquo;https://yodaimperium.de/posts/helloworld/&amp;quot; &amp;ldquo;Mozilla/5.0 (Macintosh; Intel Mac OS X 10.</description>
+    </item>
+    
+    <item>
       <title>Helloworld</title>
       <link>https://yodaimperium.de/posts/helloworld/</link>
       <pubDate>Sat, 13 May 2023 00:10:24 +0200</pubDate>
@@ -36,12 +46,16 @@ Kontakt E-Mail: contact@philippbruhns.com</description>
     </item>
     
     <item>
-      <title>Website</title>
+      <title>yodaimperium.de</title>
       <link>https://yodaimperium.de/projects/website/</link>
       <pubDate>Fri, 12 May 2023 22:37:17 +0200</pubDate>
       
       <guid>https://yodaimperium.de/projects/website/</guid>
-      <description>Documentation A detailed documentation of this website will be updated soon.</description>
+      <description>Hosting The entire website is hosted on a RaspberryPi 3.
+Software nginx
+Security In order ensure the website can be accessed securely all traffic is SSL encrypted using certbot for SSL-certificate generation.
+Because the SSH port also has to be opened to the internet in order for my GitHub Actions script to work properly, I had to secure the Pi against unauthorized acces via SSH too.
+Therefore, I made sure the GitHub Actions script only accesses the server as a deploy user.</description>
     </item>
     
   </channel>

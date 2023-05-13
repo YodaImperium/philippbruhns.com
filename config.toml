@@ -12,10 +12,10 @@ pygmentsStyle = "monokai"
 [params]
   footer = "Philipp Bruhns"
   description = "Software Engineer | Crypto Evangelist"
-  avatarURL = "/images/ape.png"
+  avatarURL = "/images/pickle.png"
   AvatarAltText = "avatar"
   avatarSize = "size-xl"
-  accentColor = "#e4e4a8"
+  accentColor = "#649b41"
 
   socialIcons = [
     {name = "linkedin", url = "https://www.linkedin.com/in/philipp-bruhns-7593ba235"},

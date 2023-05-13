@@ -5,7 +5,7 @@
 
     <style>
         :root {
-            --accent-color: #e4e4a8;
+            --accent-color: #649b41;
         }
     </style>
 
@@ -17,23 +17,23 @@
     
 
     
-    <title>Website</title>
-    <meta name="description" content="Software Engineer | Crypto Evangelist">
-    <meta name="keywords" content='blog, gokarna, hugo'>
+    <title>yodaimperium.de</title>
+    <meta name="description" content="A static website made with Hugo and GitHub Actions deployment">
+    <meta name="keywords" content='blog, gokarna, hugo, projects, doc'>
 
     <meta property="og:url" content="https://yodaimperium.de/projects/website/">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Website">
-    <meta property="og:description" content="Software Engineer | Crypto Evangelist">
-    <meta property="og:image" content="https://yodaimperium.de/images/ape.png">
-    <meta property="og:image:secure_url" content="https://yodaimperium.de/images/ape.png">
+    <meta property="og:title" content="yodaimperium.de">
+    <meta property="og:description" content="A static website made with Hugo and GitHub Actions deployment">
+    <meta property="og:image" content="https://yodaimperium.de/images/pickle.png">
+    <meta property="og:image:secure_url" content="https://yodaimperium.de/images/pickle.png">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Website">
-    <meta name="twitter:description" content="Software Engineer | Crypto Evangelist">
+    <meta name="twitter:title" content="yodaimperium.de">
+    <meta name="twitter:description" content="A static website made with Hugo and GitHub Actions deployment">
     <meta property="twitter:domain" content="https://yodaimperium.de/projects/website/">
     <meta property="twitter:url" content="https://yodaimperium.de/projects/website/">
-    <meta name="twitter:image" content="https://yodaimperium.de/images/ape.png">
+    <meta name="twitter:image" content="https://yodaimperium.de/images/pickle.png">
 
     
     <link rel="canonical" href="https://yodaimperium.de/projects/website/" />
@@ -59,7 +59,7 @@
         
         <div class="avatar">
             <a href="https://yodaimperium.de">
-                <img src="https://yodaimperium.de/images/ape.png" alt="avatar" />
+                <img src="https://yodaimperium.de/images/pickle.png" alt="avatar" />
             </a>
         </div>
         
@@ -143,21 +143,94 @@
 <main id="content">
     <div class="post container">
     <div class="post-header-section">
-        <h1>Website</h1>
-        <small role="doc-subtitle"></small>
+        <h1>yodaimperium.de</h1>
+        <small role="doc-subtitle">A static website made with Hugo and GitHub Actions deployment</small>
         <p class="post-date">
             May 12, 2023
         </p>
 
         <ul class="post-tags">
         
+            <li class="post-tag"><a href="https://yodaimperium.de/tags/projects">projects</a></li>
+        
+            <li class="post-tag"><a href="https://yodaimperium.de/tags/doc">doc</a></li>
+        
         </ul>
     </div>
 
     <div class="post-content">
         <p>
-            <h1 id="documentation">Documentation</h1>
-<p>A detailed documentation of this website will be updated soon.</p>
+            <h1 id="hosting">Hosting</h1>
+<p>The entire website is hosted on a RaspberryPi 3.</p>
+<h2 id="software">Software</h2>
+<p>nginx</p>
+<h2 id="security">Security</h2>
+<p>In order ensure the website can be accessed securely all traffic is SSL encrypted using certbot for SSL-certificate generation.</p>
+<p>Because the SSH port also has to be opened to the internet in order for my GitHub Actions script to work properly, I had to secure the Pi against unauthorized acces via SSH too.</p>
+<p>Therefore, I made sure the GitHub Actions script only accesses the server as a deploy user. The deploy users home directory also is the nginx hosting directory.
+Additionally, only passwordless SSH login using SSH-keys is allowed on the server. Login as root is also not allowed. I edited the sshd configuration file like this:</p>
+<pre><code>PasswordAuthentication no
+PermitRootLogin no
+#PermitRootLogin prohibit-password
+</code></pre>
+<h1 id="deployment">Deployment</h1>
+<h2 id="github-actions">GitHub Actions</h2>
+<p>For easy deployment I use a GitHub Actions script that executes as soon as I push to the repository. The script is located in <em>.github/workflows/ci.yml</em>.</p>
+<p>Because the Action has to run the Hugo build command and push the generated static files to the RaspberryPi, I let it run in a ubuntu environment called deploy which I created for the GitHub Repo. The Environment also contains the SSH credentials als secrets, but more on that later.</p>
+<pre><code>name: CI
+run-name: Hugo blog deployment
+on:
+    push:
+
+jobs:
+build:
+    runs-on: ubuntu-latest
+    environment: deploy
+</code></pre>
+<p>The script then goes through a few steps.<br>
+Step 1: checking the current branch</p>
+<pre><code>steps:
+    - name: Checkout the current branch
+      uses: actions/checkout@v3
+</code></pre>
+<p>Step 2: Initialising the ssh-agent in order to then later connect to the RaspberryPi.</p>
+<pre><code>- name: Initialize the ssh-agent
+  uses: webfactory/ssh-agent@v0.4.1
+  with:
+  ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+</code></pre>
+<p>Step 3: Installing my static website generator of choice - Hugo</p>
+<pre><code>- name: Install Hugo
+  run: sudo snap install hugo --edge
+</code></pre>
+<p>Step 4: Building the website using the Hugo command</p>
+<pre><code>- name: Build the website
+  run: hugo
+</code></pre>
+<p>Step 5: Because the annoying message you get when connecting to an unknown SSH server, which is the case everytime you run this script, and this would break the script, I scan for the host key first.</p>
+<pre><code>- name: Scan the host key
+  run: mkdir -p ~/.ssh/ &amp;&amp; ssh-keyscan -H $DEPLOY_SERVER &gt;&gt; ~/.ssh/known_hosts
+  env:
+    DEPLOY_SERVER: ${{ secrets.DEPLOY_SERVER }}
+</code></pre>
+<p>Step 6: The static website files the Hugo command put into the <em>public/</em> folder are then uploaded to the nginx host directory on the Pi.</p>
+<pre><code>- name: Deploy the website
+  run: &gt;-
+    rsync -avx --delete --exclude '.ssh' public/ $DEPLOY_USERNAME@$DEPLOY_SERVER:./
+  env:
+    DEPLOY_SERVER: ${{ secrets.DEPLOY_SERVER }}
+    DEPLOY_USERNAME: ${{ secrets.DEPLOY_USERNAME }}
+</code></pre>
+<h2 id="environment-secrets">Environment secrets</h2>
+<p>You may have already noticed that the GitHub Actions script logs into the Pi as a deploy user via SSH. As I obviously do not want the Actions script to just expose my SSH credentials, I set them up as Environment secrets.</p>
+<p>The script contains the information like this:</p>
+<pre><code>ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+DEPLOY_SERVER: ${{ secrets.DEPLOY_SERVER }}
+DEPLOY_USERNAME: ${{ secrets.DEPLOY_USERNAME }}
+</code></pre>
+<p>These variables are linked to the Environment secrets I set in the deploy environment that I added to my GitHub repository.</p>
+<p><img src="/images/screenshots/2023-05-13-112843.png" alt="Screenshot of my Environment Secrets section"></p>
+<p>This way none of the credentials are visible in logs, commits or other repositories.</p>
 
         </p>
         
@@ -168,6 +241,27 @@
     </div>
 </div>
 
+<aside class="post-toc">
+    <nav id="toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#hosting">Hosting</a>
+      <ul>
+        <li><a href="#software">Software</a></li>
+        <li><a href="#security">Security</a></li>
+      </ul>
+    </li>
+    <li><a href="#deployment">Deployment</a>
+      <ul>
+        <li><a href="#github-actions">GitHub Actions</a></li>
+        <li><a href="#environment-secrets">Environment secrets</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </nav>
+</aside>
+
 
 
     
@@ -177,6 +271,9 @@
     
 
     <span>&copy; 2023 Philipp Bruhns</span>
+    <span>
+        <a href="/impressum">Imprint</a> - <a href="/privacy">Privacy</a>
+    </span>
     <span>
         Made with &#10084;&#65039; using <a target="_blank" href="https://github.com/526avijitgupta/gokarna">Gokarna</a>
     </span>
