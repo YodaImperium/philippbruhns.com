@@ -8,7 +8,7 @@ tags: ['projects', 'doc']
 showTableOfContents: true
 ---
 
-In this article I'm going to explain the underlying architecture of this website. I think I found a very cool way to deploy just by pushing to the [GitHub Repository](https://github.com/YodaImperium/website-deployment/) **without** exposing any SSH keys, etc.. However, I took a lot of inspiration from this guy called [*Wolfgang's Channel*](https://www.youtube.com/watch?v=ATenAnk8eX4) on YouTube.
+In this article I'm going to explain the underlying architecture of this website. I think I've found a very cool way to deploy just by pushing to the [GitHub Repository](https://github.com/YodaImperium/website-deployment/) **without** exposing any SSH keys, etc.. However, I took a lot of inspiration from this guy called [*Wolfgang's Channel*](https://www.youtube.com/watch?v=ATenAnk8eX4) on YouTube.
 
 *TL;DR*  
 It is created with Hugo and deployed via GitHub Actions to a RaspberryPi running nginx.
@@ -54,7 +54,7 @@ For easy deployment I use a GitHub Actions script that executes as soon as I pus
 
 Just as the whole project, this script is heavily inspired by *Wolfgang's Channel*. His video can be found [here](https://www.youtube.com/watch?v=ATenAnk8eX4).
 
-Because the Action has to run the Hugo build command and push the generated static files to the RaspberryPi, I let it run in a ubuntu environment called deploy which I created for the GitHub Repo. The Environment also contains the SSH credentials als secrets, but more on that later.
+Because the Action has to run the Hugo build command and push the generated static files to the RaspberryPi, I let it run in an ubuntu environment called deploy which I created for the GitHub Repo. The Environment also contains the SSH credentials als secrets, but more on that later.
 
     name: CI
     run-name: Hugo blog deployment

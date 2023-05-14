@@ -160,7 +160,7 @@
 
     <div class="post-content">
         <p>
-            <p>In this article I&rsquo;m going to explain the underlying architecture of this website. I think I found a very cool way to deploy just by pushing to the <a href="https://github.com/YodaImperium/website-deployment/">GitHub Repository</a> <strong>without</strong> exposing any SSH keys, etc.. However, I took a lot of inspiration from this guy called <a href="https://www.youtube.com/watch?v=ATenAnk8eX4"><em>Wolfgang&rsquo;s Channel</em></a> on YouTube.</p>
+            <p>In this article I&rsquo;m going to explain the underlying architecture of this website. I think I&rsquo;ve found a very cool way to deploy just by pushing to the <a href="https://github.com/YodaImperium/website-deployment/">GitHub Repository</a> <strong>without</strong> exposing any SSH keys, etc.. However, I took a lot of inspiration from this guy called <a href="https://www.youtube.com/watch?v=ATenAnk8eX4"><em>Wolfgang&rsquo;s Channel</em></a> on YouTube.</p>
 <p><em>TL;DR</em><br>
 It is created with Hugo and deployed via GitHub Actions to a RaspberryPi running nginx.</p>
 <h1 id="static-website-generation">Static Website Generation</h1>
@@ -186,7 +186,7 @@ PermitRootLogin no
 <h2 id="github-actions">GitHub Actions</h2>
 <p>For easy deployment I use a GitHub Actions script that executes as soon as I push to the repository. The script is located in <em>.github/workflows/ci.yml</em>.</p>
 <p>Just as the whole project, this script is heavily inspired by <em>Wolfgang&rsquo;s Channel</em>. His video can be found <a href="https://www.youtube.com/watch?v=ATenAnk8eX4">here</a>.</p>
-<p>Because the Action has to run the Hugo build command and push the generated static files to the RaspberryPi, I let it run in a ubuntu environment called deploy which I created for the GitHub Repo. The Environment also contains the SSH credentials als secrets, but more on that later.</p>
+<p>Because the Action has to run the Hugo build command and push the generated static files to the RaspberryPi, I let it run in an ubuntu environment called deploy which I created for the GitHub Repo. The Environment also contains the SSH credentials als secrets, but more on that later.</p>
 <pre><code>name: CI
 run-name: Hugo blog deployment
 on:

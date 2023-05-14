@@ -11,7 +11,7 @@ pygmentsStyle = "monokai"
 
 [params]
   footer = "Philipp Bruhns"
-  description = "Student | Aspiring Software Engineer"
+  description = "Student | Crypot Evangelist"
   avatarURL = "/images/pickle.png"
   AvatarAltText = "avatar"
   avatarSize = "size-xl"
