@@ -5,7 +5,6 @@ draft: false
 type: 'post'
 description: "Go AFK while queuing for 10min"
 tags: ['projects', 'LoL']
-showTableOfContents: false
 ---
 
 coming soon
