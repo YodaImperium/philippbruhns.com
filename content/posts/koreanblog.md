@@ -4,7 +4,7 @@ date: 2023-05-13T00:10:24+02:00
 draft: false
 type: 'post'
 description: "안녕하세요. 저는 Philipp이에요. 만나서 반갑습니다."
-tags: ['English', 'Blog']
+tags: ['한국어', 'Blog']
 showTableOfContents: false
 ---
 
