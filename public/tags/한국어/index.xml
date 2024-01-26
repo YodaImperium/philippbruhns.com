@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>한국어 on Philipp Bruhns</title>
-    <link>https://yodaimperium.de/tags/%ED%95%9C%EA%B5%AD%EC%96%B4/</link>
+    <link>https://philippbruhns.com/tags/%ED%95%9C%EA%B5%AD%EC%96%B4/</link>
     <description>Recent content in 한국어 on Philipp Bruhns</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 13 May 2023 00:10:24 +0200</lastBuildDate><atom:link href="https://yodaimperium.de/tags/%ED%95%9C%EA%B5%AD%EC%96%B4/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 13 May 2023 00:10:24 +0200</lastBuildDate><atom:link href="https://philippbruhns.com/tags/%ED%95%9C%EA%B5%AD%EC%96%B4/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>안녕하세요.</title>
-      <link>https://yodaimperium.de/posts/koreanblog/</link>
+      <link>https://philippbruhns.com/posts/koreanblog/</link>
       <pubDate>Sat, 13 May 2023 00:10:24 +0200</pubDate>
       
-      <guid>https://yodaimperium.de/posts/koreanblog/</guid>
+      <guid>https://philippbruhns.com/posts/koreanblog/</guid>
       <description>이 테스트예요. 전는 한국말을 조금 할 수 있어요.</description>
     </item>
     
