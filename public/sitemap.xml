@@ -2,51 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://philippbruhns.com/tags/english/</loc>
-    <lastmod>2023-05-14T21:10:42+02:00</lastmod>
-  </url><url>
-    <loc>https://philippbruhns.com/projects/lolq/</loc>
-    <lastmod>2023-05-14T21:10:42+02:00</lastmod>
-  </url><url>
-    <loc>https://philippbruhns.com/tags/projects/</loc>
-    <lastmod>2023-05-14T21:10:42+02:00</lastmod>
-  </url><url>
-    <loc>https://philippbruhns.com/projects/</loc>
-    <lastmod>2023-05-14T21:10:42+02:00</lastmod>
-  </url><url>
-    <loc>https://philippbruhns.com/tags/</loc>
-    <lastmod>2023-05-14T21:10:42+02:00</lastmod>
-  </url><url>
-    <loc>https://philippbruhns.com/privacy/</loc>
-    <lastmod>2023-05-13T10:34:38+02:00</lastmod>
-  </url><url>
-    <loc>https://philippbruhns.com/tags/blog/</loc>
-    <lastmod>2023-05-13T00:10:24+02:00</lastmod>
-  </url><url>
-    <loc>https://philippbruhns.com/posts/helloworld/</loc>
-    <lastmod>2023-05-13T00:10:24+02:00</lastmod>
-  </url><url>
-    <loc>https://philippbruhns.com/posts/</loc>
-    <lastmod>2023-05-13T00:10:24+02:00</lastmod>
-  </url><url>
-    <loc>https://philippbruhns.com/posts/koreanblog/</loc>
-    <lastmod>2023-05-13T00:10:24+02:00</lastmod>
-  </url><url>
-    <loc>https://philippbruhns.com/tags/%ED%95%9C%EA%B5%AD%EC%96%B4/</loc>
-    <lastmod>2023-05-13T00:10:24+02:00</lastmod>
-  </url><url>
-    <loc>https://philippbruhns.com/posts/test/</loc>
-    <lastmod>2023-05-12T23:57:16+02:00</lastmod>
-  </url><url>
     <loc>https://philippbruhns.com/impressum/</loc>
     <lastmod>2023-05-12T23:51:11+02:00</lastmod>
-  </url><url>
-    <loc>https://philippbruhns.com/projects/website/</loc>
-    <lastmod>2023-05-12T22:37:17+02:00</lastmod>
   </url><url>
     <loc>https://philippbruhns.com/</loc>
     <lastmod>2023-05-09T18:12:12+02:00</lastmod>
   </url><url>
     <loc>https://philippbruhns.com/categories/</loc>
+  </url><url>
+    <loc>https://philippbruhns.com/tags/</loc>
   </url>
 </urlset>

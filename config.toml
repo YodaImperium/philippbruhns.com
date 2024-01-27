@@ -11,8 +11,8 @@ pygmentsStyle = "monokai"
 
 [params]
   footer = "Philipp Bruhns"
-  description = "Student | Crypto Evangelist"
-  avatarURL = "/images/pickle.png"
+  description = "Student | Engineer"
+  avatarURL = "/images/plant.jpg"
   AvatarAltText = "avatar"
   avatarSize = "size-xl"
   accentColor = "#649b41"
@@ -20,26 +20,19 @@ pygmentsStyle = "monokai"
   socialIcons = [
     {name = "linkedin", url = "https://www.linkedin.com/in/philipp-bruhns-7593ba235"},
     {name = "github", url = "https://github.com/YodaImperium"},
-    {name = "mastodon", url = "https://mastodon.social/@yodaimperium", rel = "me"},
-    {name = "email", url = "mailto:contact@philippbruhns.com"}
+    {name = "spotify", url = "https://open.spotify.com/user/yodaimperium?si=f7c5c7023a3b46b0"},
   ]
   metaKeywords = ["blog", "gokarna", "hugo"]
 
 [menu]
   [[menu.main]]
-    name = "Home"
+    name = ""
     pre = "<span data-feather='home'></span>"
     url = "/"
     weight = 1
 
   [[menu.main]]
-    name = "Posts"
-    pre = "<span data-feather='book'></span>"
-    url = "/posts/"
-    weight = 2
-
-  [[menu.main]]
-    name = "Projects"
+    name = ""
     pre = "<span data-feather='code'></span>"
     url = "/projects/"
     weight = 3
@@ -47,14 +40,8 @@ pygmentsStyle = "monokai"
   [[menu.main]]
     identifier = "github"
     pre = "<span data-feather='github'></span>"
-    url = "https://github.com/YodaImperium/website-deployment/"
+    url = "https://github.com/YodaImperium/philippbruhns.com/"
     weight = 5
-
-  [[menu.main]]
-    identifier = "rss"
-    pre = "<span data-feather='rss'></span>"
-    url = "/index.xml"
-    weight = 7
 
 [markup]
   [markup.tableOfContents]
